@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "@material-ui/core";
+import React from "react";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import "./index.css";
+import Home from "./screens/Home";
+import ProductScreen from "./screens/ProductScreen";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <main className=" py-3">
+        <Container>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/product/:id" component={ProductScreen} />
+        </Container>
+      </main>
+
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
