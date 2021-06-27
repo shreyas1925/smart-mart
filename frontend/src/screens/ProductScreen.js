@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
 import Rating from "../Components/Rating";
-import products from "../products";
+import axios from "axios";
 
 const ProductScreen = ({ match }) => {
-  const product = products.find((p) => p._id === match.params.id);
+  // const product = products.find((p) => p._id === match.params.id);
+
+  // Now we will be fetching it from the backend
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      //Basically it will be the response and then we have
+      // to do res.json() to get the data but here we are
+      //using object destructuring
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, [match]);
 
   return (
     <div>
