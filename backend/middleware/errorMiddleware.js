@@ -10,7 +10,7 @@ const errorHandler = (err, req, res, next) => {
   res.status(statusCode);
 
   res.json({
-    message: err.message,
+    message: err.message, //this message will also be fetched in our frontend while using actions (in error payload)
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
   });
 };
