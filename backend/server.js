@@ -5,9 +5,12 @@ import colors from "colors";
 import connectDB from "./config/db.js";
 // import products from "./data/products.js";
 
-import productRoutes from "./routes/productsRoutes.js";
+// import productRoutes from "./routes/productsRoutes.js";
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+
+import productRoutes from "./routes/productsRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -22,11 +25,15 @@ const app = express();
 //   next();
 // });
 
+app.use(express.json());
+//  This allw0s to set data to req.body
+
 app.get("/", (req, res) => {
   res.send("My home page Api is running");
 });
 
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 app.use(notFound);
 
