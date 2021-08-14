@@ -46,6 +46,7 @@ const LoginScreen = ({ location, history }) => {
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
+
         {/* for password */}
 
         <Form.Group controlId="password">
