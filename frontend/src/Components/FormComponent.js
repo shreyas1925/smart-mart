@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import image from "../images/login.png";
+
 const FormComponent = ({ children }) => {
   return (
     <Container className="">
