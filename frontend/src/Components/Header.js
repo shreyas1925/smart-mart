@@ -6,12 +6,16 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import HomeIcon from "@material-ui/icons/Home";
+import { logout } from "../actions/userAction";
 
 const Header = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const dispatch = useDispatch();
 
-  const userLogout = () => {};
+  const userLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <header className="h-100">
@@ -33,11 +37,16 @@ const Header = () => {
                 <NavDropdown
                   title={userInfo.name}
                   id="username"
-                  className="mt-1"
+                  // className="mt-1"
                 >
                   <LinkContainer to="/profile">
                     <NavDropdown.Item onClick={userLogout}>
-                      Logout
+                      Profile
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/">
+                    <NavDropdown.Item onClick={userLogout}>
+                      Logout <AccountCircleIcon />
                     </NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>

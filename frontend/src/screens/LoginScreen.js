@@ -6,6 +6,9 @@ import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { login } from "../actions/userAction";
 import FormComponent from "../Components/FormComponent";
+// import { Avatar } from "@material-ui/core";
+import Avatar from "./avatar.png";
+import "./Login.css";
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -33,10 +36,13 @@ const LoginScreen = ({ location, history }) => {
   };
   return (
     <FormComponent>
-      <h1>LOGIN HERE</h1>
+      {/* <h1 className="text-center">LOGIN HERE</h1> */}
+
+      <img src={Avatar} className="image" />
+      {/* <Avatar /> */}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader></Loader>}
-      <Form onSubmit={submitHandler}>
+      <Form onSubmit={submitHandler} className="">
         <Form.Group controlId="email">
           <Form.Label>Email Address</Form.Label>
           <Form.Control

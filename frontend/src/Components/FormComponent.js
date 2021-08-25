@@ -4,14 +4,14 @@ import image from "../images/login.png";
 
 const FormComponent = ({ children }) => {
   return (
-    <Container className="">
+    <Container className="border-dark">
       <Row className=" justify-content-md-center ">
         <Col xs={12} md={6}>
           {children}
         </Col>
-        <Col xs={12} md={6}>
+        {/* <Col xs={12} md={6}>
           <img src={image} alt="" />
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

@@ -23,3 +23,14 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# While dealing every time with react redux keep one simple note in mind that
+
+# step 1: you can create constants for some safety (optional)
+
+# step 2: move on create reducers where u can declare some mini actions for particular reducers
+
+# step 3: directly add your reducer to store from where u can get your details using useSelector and
+
+# step 4 : go to actions and declare your actions how to perform it 
