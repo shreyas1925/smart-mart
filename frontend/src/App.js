@@ -10,6 +10,7 @@ import CartScreen from "./screens/CartScreen";
 // import ImagesSlider from "./Components/ImagesSlider";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 const App = () => {
   return (
@@ -21,9 +22,8 @@ const App = () => {
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
-          <Route exact path="/">
-            <Home />
-          </Route>
+          <Route path="/profile" component={ProfileScreen} />
+          <Route exact path="/" component={Home} />
         </Container>
       </main>
       <Footer />
