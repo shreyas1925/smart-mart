@@ -30,7 +30,7 @@ const Header = () => {
             <Nav className="ml-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <ShoppingCartIcon className="w-25 mb-1" /> Cart
+                  <ShoppingCartIcon className="" /> Cart
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -40,20 +40,19 @@ const Header = () => {
                   // className="mt-1"
                 >
                   <LinkContainer to="/profile">
-                    <NavDropdown.Item onClick={userLogout}>
-                      Profile
-                    </NavDropdown.Item>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to="/">
+
+                  <LinkContainer to="">
                     <NavDropdown.Item onClick={userLogout}>
-                      Logout <AccountCircleIcon />
+                      Logout
                     </NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    Login <AccountCircleIcon />
+                    <AccountCircleIcon className="" /> Login
                   </Nav.Link>
                 </LinkContainer>
               )}

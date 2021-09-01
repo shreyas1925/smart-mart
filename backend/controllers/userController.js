@@ -41,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({ name, email, password }); //here we have create method which is the synthetic sugar for creating .save which we have done in model with the help of user Schema
 
   if (user) {
-    res.json({
+    res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
@@ -76,4 +76,36 @@ const getUserProfile = asyncHandler(async (req, res) => {
   res.send("success");
 });
 
-export { authUser, getUserProfile, registerUser };
+// @desc update the  user profile
+// @route GET /api/users/profile
+// @access private
+
+const updateProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    if (req.body.password) {
+      user.password = req.body.password; //automatically passwoed will be encrypted
+    }
+
+    const updateduser = await user.save();
+
+    res.json({
+      _id: updateduser._id,
+      name: updateduser.name,
+      email: updateduser.email,
+      isAdmin: updateduser.isAdmin,
+      token: generatewebToken(updateduser._id), //not creating just updating the one
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
+  res.send("success");
+});
+
+export { authUser, getUserProfile, registerUser, updateProfile };
