@@ -1,0 +1,25 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 14px;
+  background-color: rgb(240, 240, 240);
+  color: black;
+}
+
+.mains {
+  background-color: rgb(240, 240, 240);
+  color: black;
+  padding: 20px;
+}
+
+.footer {
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}

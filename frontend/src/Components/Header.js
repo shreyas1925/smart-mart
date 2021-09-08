@@ -7,6 +7,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import HomeIcon from "@material-ui/icons/Home";
 import { logout } from "../actions/userAction";
+import "../styles/styles.css";
 
 const Header = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -19,7 +20,7 @@ const Header = () => {
 
   return (
     <header className="h-100">
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar bg="" variant="light" expand="lg" collapseOnSelect>
         <Container className="">
           <LinkContainer to="/">
             <Navbar.Brand>MERN - Ecommerce</Navbar.Brand>

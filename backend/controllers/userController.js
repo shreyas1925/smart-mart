@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
 import generatewebToken from "../utils/generatewebToken.js";
+
 // @desc Auth the user and gets a token for specific user just logging in
 // @route GET /api/users/login
 // @access public
