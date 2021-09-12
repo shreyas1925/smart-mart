@@ -20,7 +20,12 @@ const Header = () => {
 
   return (
     <header className="h-100">
-      <Navbar bg="" variant="light" expand="lg" collapseOnSelect>
+      <Navbar
+        className="navbar_main"
+        variant="dark"
+        expand="lg"
+        collapseOnSelect
+      >
         <Container className="">
           <LinkContainer to="/">
             <Navbar.Brand>MERN - Ecommerce</Navbar.Brand>

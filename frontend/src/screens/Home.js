@@ -7,6 +7,7 @@ import { listProducts } from "../actions/productAction"; //we will be dispatchin
 import Loader from "../Components/Loader";
 import Message from "../Components/Message";
 import tv from "./tv.jpg";
+import "../styles/styles.css";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="home_div">
       {/* <h1 className="text-center pt-2">Latest Products</h1> */}
       {loading ? (
         <Loader />
@@ -38,7 +39,7 @@ const Home = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

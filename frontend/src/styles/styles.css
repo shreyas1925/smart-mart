@@ -15,7 +15,12 @@
   padding: 20px;
 }
 
-.footer {
+.navbar_main {
+  background-color: #219ebc;
+}
+
+.home_div {
+  background-color: #f0efeb;
 }
 
 @media (max-width: 768px) {

@@ -16,15 +16,15 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <main className="  ">
-        {/* <Container> */}
-        <Route path="/product/:id" component={ProductScreen} />
-        <Route path="/cart/:id?" component={CartScreen} />
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/register" component={RegisterScreen} />
-        <Route path="/profile" component={ProfileScreen} />
+      <main className="home_div">
+        <Container>
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/register" component={RegisterScreen} />
+          <Route path="/profile" component={ProfileScreen} />
+        </Container>
         <Route exact path="/" component={Home} />
-        {/* </Container> */}
       </main>
       <Footer />
     </Router>
