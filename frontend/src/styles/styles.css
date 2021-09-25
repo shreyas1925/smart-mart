@@ -95,6 +95,21 @@ i {
   margin-top: -30px;
 }
 
+/* Home banner css comes here */
+
+.home__intro {
+  display: grid;
+  background-image: url("../screens/home__intro.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px 200px;
+  grid-gap: 20px;
+  /* padding-left: 60px;
+  padding-right: 50px; */
+}
+
 @media (max-width: 560px) {
   .second {
     margin-top: -20px;

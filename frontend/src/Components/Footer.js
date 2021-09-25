@@ -106,8 +106,7 @@ const Footer = () => {
         </div>
         <div className="space-y-4 text-xs text-gray-800 mains">
           <h6 className="font-semibold m-12 w-62 mt-3 text-white ">
-            Terms & Conditions | All Rights Reserved | 2021 Digital Villa and
-            co.
+            Terms & Conditions | All Rights Reserved | 2021 SMART MART
           </h6>
         </div>
       </footer>
