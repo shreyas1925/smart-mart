@@ -1,17 +1,44 @@
+/* Header styles */
+
+.dropdown-item.active {
+  color: black !important;
+  text-decoration: none;
+  background-color: white;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: skyblue;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: skyblue;
+  height: 100%;
+  margin-bottom: 0;
+}
+
 .main {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 14px;
-  background-color: rgb(240, 240, 240);
-  color: black;
+  /* background-color: rgb(197, 197, 197); */
+  background-color: #353849;
+  color: #d9dadf;
 }
 
 .mains {
-  background-color: rgb(240, 240, 240);
-  color: black;
+  background-color: #353849;
+  color: #d9dadf;
   padding: 20px;
 }
 
@@ -20,7 +47,67 @@
 }
 
 .home_div {
-  background-color: #f0efeb;
+  /* background-color: #D9DADF; */
+  background-color: #d9dadf;
+}
+
+/* Form css */
+
+.form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: 100px 200px;
+  grid-gap: 20px;
+  /* background-color: gainsboro; */
+}
+
+.message {
+  margin-top: -20px;
+  grid-column: 1/-1;
+}
+
+.first {
+}
+
+.form__name {
+  background-color: gainsboro;
+  border: 1px solid transparent;
+}
+
+i {
+  font-size: 20px;
+}
+
+.fa-github {
+  /* color: #4078c0; */
+}
+.fa-twitter {
+  color: #1da1f2;
+}
+.fa-instagram {
+  color: #e4405f;
+}
+.fa-linkedin-in {
+  color: #0a66c2;
+}
+
+.buttons {
+  margin-top: -30px;
+}
+
+@media (max-width: 560px) {
+  .second {
+    margin-top: -20px;
+  }
+  .message {
+    margin-top: -30px;
+  }
+
+  .form__grid {
+    grid-template-columns: repeat(1, 330px);
+    grid-template-rows: 100px 100px 200px;
+    grid-gap: 12px;
+  }
 }
 
 @media (max-width: 768px) {

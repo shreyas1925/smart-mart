@@ -55,16 +55,16 @@ const ProfileScreen = ({ history }) => {
   return (
     <Row>
       <Col md={3}>
-        <h2 className="text-center">USER PROFILE</h2>
+        {/* <h2 className="text-center">USER PROFILE</h2> */}
 
-        <img src={Avatar} className="image" />
+        {/* <img src={Avatar} className="image" /> */}
         {/* <Avatar /> */}
 
         {message && <Message variant="danger">{message}</Message>}
         {error && <Message variant="danger">{error}</Message>}
         {success && <Message variant="success">Succesfully Updated!!</Message>}
         {loading && <Loader></Loader>}
-        <Form onSubmit={submitHandler} className="">
+        <Form onSubmit={submitHandler} className="mt-5">
           <Form.Group controlId="name">
             <Form.Label>Name </Form.Label>
             <Form.Control
@@ -112,9 +112,7 @@ const ProfileScreen = ({ history }) => {
         </Form>
       </Col>
 
-      <Col md={9}>
-        <h2>My Orders</h2>
-      </Col>
+      <Col md={9}>{/* <h2>My Orders</h2> */}</Col>
     </Row>
   );
 };

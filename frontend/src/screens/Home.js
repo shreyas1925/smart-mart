@@ -26,7 +26,9 @@ const Home = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <img src={tv} alt="" srcset="" className="img-fluid" />
+          {/* <img src={tv} alt="" srcset="" className="img-fluid" /> */}
+
+          {/* Main intro banner comes here */}
 
           <div className="p-4">
             <Row className="pt-3">

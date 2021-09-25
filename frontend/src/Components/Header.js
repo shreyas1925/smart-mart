@@ -28,7 +28,7 @@ const Header = () => {
       >
         <Container className="">
           <LinkContainer to="/">
-            <Navbar.Brand>MERN - Ecommerce</Navbar.Brand>
+            <Navbar.Brand>SMART MART</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,7 +43,7 @@ const Header = () => {
                 <NavDropdown
                   title={userInfo.name}
                   id="username"
-                  // className="mt-1"
+                  className="mt-1"
                 >
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>

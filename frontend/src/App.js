@@ -16,7 +16,7 @@ import ShippingScreen from "./screens/ShippingScreen";
 const App = () => {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <main className="home_div">
         <Container>
           <Route path="/shipping" component={ShippingScreen} />

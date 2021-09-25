@@ -43,7 +43,7 @@ const RegisterScreen = ({ location, history }) => {
     <FormComponent>
       {/* <h1 className="text-center">LOGIN HERE</h1> */}
 
-      <img src={Avatar} className="image" />
+      {/* <img src={Avatar} className="image" /> */}
       {/* <Avatar /> */}
       {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
@@ -52,7 +52,7 @@ const RegisterScreen = ({ location, history }) => {
         <Form.Group controlId="name">
           <Form.Label>Name </Form.Label>
           <Form.Control
-            type="name"
+            type="text"
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}

@@ -38,11 +38,11 @@ const LoginScreen = ({ location, history }) => {
     <FormComponent>
       {/* <h1 className="text-center">LOGIN HERE</h1> */}
 
-      <img src={Avatar} className="image" />
+      {/* <img src={Avatar} className="image" /> */}
       {/* <Avatar /> */}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader></Loader>}
-      <Form onSubmit={submitHandler} className="">
+      <Form onSubmit={submitHandler} className="mt-5">
         <Form.Group controlId="email">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
