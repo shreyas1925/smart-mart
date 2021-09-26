@@ -25,6 +25,14 @@ const Footer = () => {
             <p>Investors</p>
             <p>Advertise</p>
             <p>Media Contacts</p>
+
+            <br />
+            <br />
+            <p>How Digital booking works</p>
+            <p>News & Press</p>
+            <p>Investors</p>
+            <p>Advertise</p>
+            <p>Media Contacts</p>
           </div>
 
           <div className="space-y-4 text-xs text-white">
@@ -34,19 +42,27 @@ const Footer = () => {
             <p>Nearby Response</p>
             <p>Safety Network</p>
             <p>Reports</p>
+
+            <br />
+            <br />
+            <p>How Digital booking works</p>
+            <p>News & Press</p>
+            <p>Investors</p>
+            <p>Advertise</p>
+            <p>Media Contacts</p>
           </div>
           <Form className="">
             <h2 className="bold text-white">Connect Now</h2>
             <div className="socials mb-4 d-flex align-content-around">
               <div className="cursor-pointer text-white">
-                <a
+                {/* <a
                   href="https://github.com/shreyas1925"
                   target="_blank"
                   className="mr-4"
-                >
-                  <i className="fab fa-github"></i>
-                  {/* <GitHubIcon className="github" /> */}
-                </a>
+                > */}
+                {/* <i className="fab fa-github"></i> */}
+                {/* <GitHubIcon className="github" /> */}
+                {/* </a>
                 <Link href="/" className="mr-4">
                   <i className="fab fa-instagram"></i>
                 </Link>
@@ -55,7 +71,7 @@ const Footer = () => {
                 </Link>
                 <Link href="/">
                   <i className="fab fa-twitter"></i>
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="form__grid">

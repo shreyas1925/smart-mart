@@ -12,11 +12,13 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ShippingScreen from "./screens/ShippingScreen";
+import NavBar from "./Components/NavBar";
 
 const App = () => {
   return (
     <Router>
       {/* <Header /> */}
+      {/* <NavBar /> */}
       <main className="home_div">
         <Container>
           <Route path="/shipping" component={ShippingScreen} />

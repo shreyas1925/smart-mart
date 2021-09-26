@@ -10,6 +10,7 @@ import tv from "./tv.jpg";
 import "../styles/styles.css";
 
 import home__image from "./home__image.png";
+import NavBar from "../Components/NavBar";
 const Home = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList); //the peice of state i have mentioned in my store
@@ -32,6 +33,7 @@ const Home = () => {
           {/* Main intro banner comes here */}
 
           <div className="home__intro">
+            <NavBar />
             <div className="home__image">
               {/* <img src={home__image} alt="home" /> */}
             </div>
