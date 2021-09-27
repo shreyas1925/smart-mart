@@ -34,19 +34,22 @@ const Home = () => {
 
           <div className="home__intro">
             <NavBar />
+
             <div className="home__image">
               {/* <img src={home__image} alt="home" /> */}
             </div>
 
-            <div className="home__info">
-              {/* <h1>Lorem ipsum dolor sit amet.</h1>
+            <div className="home__info font-weight-bolder">
+              <h1 className="text-white ">Smart Mart 🚀 People's choice</h1>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Dignissimos eius eaque ut fugit deserunt id, sit porro totam at
-                esse.
+                A initiative non profit project where users can contact us an
+                add their art works or products which will be accessed by other
+                users, payment gateways are included.
               </p>
 
-              <button>Lorem, ipsum.</button> */}
+              <button className="btn btn-outline-light home_btn">
+                CONNECT
+              </button>
             </div>
           </div>
 
