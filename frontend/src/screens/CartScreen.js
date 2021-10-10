@@ -135,7 +135,7 @@ const CartScreen = ({ match, location, history }) => {
             </ListGroup>
           )}
         </Col>
-        <Col md={4} className="mt-4">
+        <Col md={4} className="m_top">
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>

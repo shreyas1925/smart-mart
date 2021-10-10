@@ -40,7 +40,7 @@ const Home = () => {
             </div>
 
             <div className="home__info font-weight-bolder">
-              <h1 className="text-white ">Smart Mart 🚀 People's choice</h1>
+              <h1 className="text-white">Smart Mart 🚀 People's choice</h1>
               <p>
                 A initiative non profit project where users can contact us an
                 add their art works or products which will be accessed by other

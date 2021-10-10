@@ -4,17 +4,19 @@ import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormComponent from "../Components/FormComponent";
 import "./Login.css";
+import "../styles/styles.css";
 import { saveShippingAddress } from "../actions/cartAction";
+import CheckoutSteps from "../Components/CheckoutSteps";
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
 
   const { shippingAddress } = cart;
 
-  const [address, setAddress] = useState("");
-  const [city, setcity] = useState("");
-  const [postalCode, setpostalCode] = useState("");
-  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState(shippingAddress.address);
+  const [city, setcity] = useState(shippingAddress.city);
+  const [postalCode, setpostalCode] = useState(shippingAddress.postalCode);
+  const [country, setCountry] = useState(shippingAddress.country);
 
   const dispatch = useDispatch();
 
@@ -25,7 +27,8 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <FormComponent>
-      <h1>Heyy Shipping Screens!!</h1>
+      <CheckoutSteps step1 step2 />
+      <h1>Welcome User 😊!!</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
           <Form.Label>Address </Form.Label>
@@ -71,8 +74,11 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" className="btn btn-outline-info">
-          Submit
+        <Button
+          type="submit"
+          className="btn btn-info border-0 rounded-lg px-4 py-2"
+        >
+          Proceed
         </Button>
       </Form>
     </FormComponent>
