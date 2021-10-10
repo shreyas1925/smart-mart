@@ -54,25 +54,7 @@ const Footer = () => {
           <Form className="">
             <h2 className="bold text-white">Connect Now</h2>
             <div className="socials mb-4 d-flex align-content-around">
-              <div className="cursor-pointer text-white">
-                {/* <a
-                  href="https://github.com/shreyas1925"
-                  target="_blank"
-                  className="mr-4"
-                > */}
-                {/* <i className="fab fa-github"></i> */}
-                {/* <GitHubIcon className="github" /> */}
-                {/* </a>
-                <Link href="/" className="mr-4">
-                  <i className="fab fa-instagram"></i>
-                </Link>
-                <Link href="/" className="mr-4">
-                  <i className="fab fa-linkedin-in"></i>
-                </Link>
-                <Link href="/">
-                  <i className="fab fa-twitter"></i>
-                </Link> */}
-              </div>
+              <div className="cursor-pointer text-white"></div>
             </div>
             <div className="form__grid">
               <div className="first">

@@ -55,7 +55,8 @@ const Home = () => {
 
           <div className="p-4">
             <Row className="pt-3">
-              {products.slice(0, 4).map((product) => (
+              {/* products.slice(0, 4). */}
+              {products.map((product) => (
                 <Col key={product._id} sm={6} md={6} lg={4} xl={3}>
                   <Product product={product} />
                 </Col>
