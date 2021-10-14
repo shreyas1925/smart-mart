@@ -76,7 +76,7 @@ const ShippingScreen = ({ history }) => {
 
         <Button
           type="submit"
-          className="btn btn-info border-0 rounded-lg px-4 py-2"
+          className="btn btn-info border-0 rounded-lg px-4 py-2 mb-3"
         >
           Proceed
         </Button>
@@ -84,5 +84,4 @@ const ShippingScreen = ({ history }) => {
     </FormComponent>
   );
 };
-
 export default ShippingScreen;
