@@ -14,17 +14,25 @@ import { useDispatch, useSelector } from "react-redux";
 import FormComponent from "../Components/FormComponent";
 import CheckoutSteps from "../Components/CheckoutSteps";
 import Message from "../Components/Message";
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 function PlaceOrder() {
   const cart = useSelector((state) => state.cart);
 
   const PlaceOrderHandler = () => {
-    console.log("s");
+    // Now calculating all kind of prices
+    const cart = useSelector((state) => state.cart);
+
+    cart.itemsPrice = cart.cartItems.reduce(
+      (accum, item) => accum + item.price * item.qty
+    );
+
+    cart.shippingAddress = cart.itemsPrice > 1000 ? 200 : 100;
+    cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(2));
   };
   return (
     <>
       <CheckoutSteps step1 step2 step3 step4 />
-      <Row>
+      <Row className="">
         <Col>
           <ListGroup.Item>
             <h2 className="font-weight-bold">Shipping</h2>
@@ -47,21 +55,22 @@ function PlaceOrder() {
               <Message>Your cart is empty</Message>
             ) : (
               <ListGroup variant="flush">
-                {cart.cartItems.map((item, idx) => {
+                {cart.cartItems.map((item, idx) => (
                   <ListGroup.Item key={idx}>
                     <Row>
-                      <Col md={1}>
+                      <Col md={2}>
                         <Image src={item.image} alt={item.name} fluid rounded />
                       </Col>
                       <Col>
                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                       </Col>
                       <Col md={4}>
-                        {item.qty} x ${item.price} = ${item.qty * item.price}
+                        {item.qty} x ${item.price} = $
+                        {parseInt(item.qty * item.price)}
                       </Col>
                     </Row>
-                  </ListGroup.Item>;
-                })}
+                  </ListGroup.Item>
+                ))}
               </ListGroup>
             )}
           </ListGroup.Item>
@@ -102,7 +111,7 @@ function PlaceOrder() {
               type="submit"
               disabled={cart.cartItems === 0}
               onClick={PlaceOrderHandler}
-              className="btn btn-info border-0 rounded-lg px-6 py-2  mb-3"
+              className="btn btn-info border-0 rounded-lg px-6 py-2 w-100  mb-3"
             >
               ORDER
             </Button>
