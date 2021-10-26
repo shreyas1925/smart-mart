@@ -18,16 +18,25 @@ import { Link } from "react-router-dom";
 function PlaceOrder() {
   const cart = useSelector((state) => state.cart);
 
+  const addDecimals = (number) => {
+    return (Math.round(number * 100) / 100).toFixed(2);
+  };
+
+  cart.itemsPrice = cart.cartItems.reduce(
+    (accum, item) => accum + item.price * item.qty,
+    0
+  );
+
+  cart.shippingPrice = addDecimals(cart.itemsPrice > 1000 ? 200 : 100);
+  cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)));
+  cart.totalPrice = (
+    Number(cart.itemsPrice) +
+    Number(cart.shippingPrice) +
+    Number(cart.taxPrice)
+  ).toFixed(2);
+
   const PlaceOrderHandler = () => {
     // Now calculating all kind of prices
-    const cart = useSelector((state) => state.cart);
-
-    cart.itemsPrice = cart.cartItems.reduce(
-      (accum, item) => accum + item.price * item.qty
-    );
-
-    cart.shippingAddress = cart.itemsPrice > 1000 ? 200 : 100;
-    cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(2));
   };
   return (
     <>
