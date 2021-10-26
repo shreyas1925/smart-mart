@@ -44,7 +44,7 @@ export const saveShippingAddress = (data) => async (dispatch) => {
 
 export const savePaymentMethod = (data) => async (dispatch) => {
   dispatch({
-    type: CART_SAVE_SHIPPING_ADDRESS, //this will be dispatched
+    type: CART_SAVE_PAYMENT_METHOD, //this will be dispatched
     payload: data,
   });
 

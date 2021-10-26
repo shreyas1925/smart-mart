@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 // import products from "../products";
 import Product from "../Components/Product";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,9 +47,12 @@ const Home = () => {
                 users, payment gateways are included.
               </p>
 
-              <button className="btn btn-outline-light home_btn">
+              <Button
+                type="submit"
+                className="btn btn-info border-0 rounded-lg px-6 py-2  mb-3"
+              >
                 CONNECT
-              </button>
+              </Button>
             </div>
           </div>
 

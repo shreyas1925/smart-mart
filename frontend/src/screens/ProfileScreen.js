@@ -62,7 +62,11 @@ const ProfileScreen = ({ history }) => {
 
         {message && <Message variant="danger">{message}</Message>}
         {error && <Message variant="danger">{error}</Message>}
-        {success && <Message variant="success">Succesfully Updated!!</Message>}
+        {success && (
+          <Message variant="success" className="margins">
+            Succesfully Updated!!
+          </Message>
+        )}
         {loading && <Loader></Loader>}
         <Form onSubmit={submitHandler} className="mt-5">
           <Form.Group controlId="name">
@@ -106,7 +110,14 @@ const ProfileScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit" variant="primary">
+          {/* <Button type="submit" variant="primary">
+            Update
+          </Button> */}
+
+          <Button
+            type="submit"
+            className="btn btn-info border-0 rounded-lg px-4 py-2 mb-3"
+          >
             Update
           </Button>
         </Form>

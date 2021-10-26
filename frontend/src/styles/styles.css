@@ -193,6 +193,15 @@ li a:hover {
     margin-top: 12px;
   }
 
+  .home__info h1 {
+    margin-top: -15px;
+    font-size: 30px;
+  }
+
+  .home__info p {
+    margin-top: -12px;
+    font-size: 12px;
+  }
   .second {
     margin-top: -20px;
   }
