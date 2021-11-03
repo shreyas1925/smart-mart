@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Form,
   Button,
@@ -15,9 +14,11 @@ import FormComponent from "../Components/FormComponent";
 import CheckoutSteps from "../Components/CheckoutSteps";
 import Message from "../Components/Message";
 import { Link } from "react-router-dom";
-function PlaceOrder() {
-  const cart = useSelector((state) => state.cart);
+import { createOrder } from "../actions/OrderAction";
 
+const PlaceOrder = ({ history }) => {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const addDecimals = (number) => {
     return (Math.round(number * 100) / 100).toFixed(2);
   };
@@ -35,8 +36,34 @@ function PlaceOrder() {
     Number(cart.taxPrice)
   ).toFixed(2);
 
+  // this ordercreate is in store which is a reducer
+  const orderCreate = useSelector((state) => state.orderCreate);
+
+  const { order, success, error } = orderCreate;
+
+  useEffect(() => {
+    if (success) {
+      history.push(`/order/${order._id}`);
+    }
+    // eslint-disable-next-line
+  }, [history, success]);
+
   const PlaceOrderHandler = () => {
     // Now calculating all kind of prices
+
+    // After constants,reducers,actions we are here with our orders
+    dispatch(
+      createOrder({
+        // all comes from our cart
+        orderItems: cart.orderItems,
+        shippingAddress: cart.shippingAddress,
+        shippingPrice: cart.shippingPrice,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
   };
   return (
     <>
@@ -116,6 +143,9 @@ function PlaceOrder() {
             </Row>
           </ListGroup.Item>
           <ListGroup.Item>
+            {error && <Message variant="danger">{error}</Message>}
+          </ListGroup.Item>
+          <ListGroup.Item>
             <Button
               type="submit"
               disabled={cart.cartItems === 0}
@@ -129,6 +159,6 @@ function PlaceOrder() {
       </Row>
     </>
   );
-}
+};
 
 export default PlaceOrder;
