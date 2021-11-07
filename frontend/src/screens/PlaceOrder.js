@@ -23,9 +23,8 @@ const PlaceOrder = ({ history }) => {
     return (Math.round(number * 100) / 100).toFixed(2);
   };
 
-  cart.itemsPrice = cart.cartItems.reduce(
-    (accum, item) => accum + item.price * item.qty,
-    0
+  cart.itemsPrice = addDecimals(
+    cart.cartItems.reduce((accum, item) => accum + item.price * item.qty, 0)
   );
 
   cart.shippingPrice = addDecimals(cart.itemsPrice > 1000 ? 200 : 100);

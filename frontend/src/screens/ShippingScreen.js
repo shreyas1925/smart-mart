@@ -20,6 +20,8 @@ const ShippingScreen = ({ history }) => {
 
   const dispatch = useDispatch();
 
+  // using actions is like fetching all the data their and pushing them into the state for these like work actions come into the picture
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveShippingAddress({ address, city, postalCode, country }));

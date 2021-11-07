@@ -15,6 +15,7 @@ import ShippingScreen from "./screens/ShippingScreen";
 import NavBar from "./Components/NavBar";
 import PaymentMethod from "./screens/PaymentMethod";
 import PlaceOrder from "./screens/PlaceOrder";
+import OrderScreen from "./screens/OrderScreen";
 const App = () => {
   return (
     <Router>
@@ -22,6 +23,7 @@ const App = () => {
       {/* <NavBar /> */}
       <main className="home_div">
         <Container>
+          <Route path="/order/:id" component={OrderScreen} />
           <Route path="/placeorder" component={PlaceOrder} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentMethod} />
