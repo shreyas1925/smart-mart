@@ -29,7 +29,7 @@ const OrderScreen = ({ match }) => {
   useEffect(() => {
     dispatch(getOrdeDetails(orderId));
     // eslint-disable-next-line
-  }, []);
+  }, [dispatch, orderId]);
 
   return loading ? (
     <Loader />
