@@ -83,13 +83,11 @@ export const payOrder =
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-
       const { data } = await axios.post(
         `/api/orders/${orderId}/pay`,
         paymentResult,
         config
       );
-
       dispatch({ type: ORDER_PAY_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
