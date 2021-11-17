@@ -10,3 +10,20 @@
 .margins {
   margin-top: 120px;
 }
+
+.login > button {
+  width: 220px;
+  background-color: #738adb;
+  color: white;
+  font-weight: 850;
+  padding: 12px;
+  border-radius: 45px;
+}
+
+.login > button:hover {
+  background-color: #93a4e2;
+  padding: 12px;
+}
+.login > button:active {
+  background-color: #93a4e2;
+}

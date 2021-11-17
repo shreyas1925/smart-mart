@@ -47,12 +47,15 @@ const Home = () => {
                 users, payment gateways are included.
               </p>
 
-              <Button
+              {/* <Button
                 type="submit"
                 className="btn btn-info border-0 rounded-lg px-6 py-2  mb-3"
               >
                 CONNECT
-              </Button>
+              </Button> */}
+              <div className="login">
+                <Button className="button">Connect</Button>
+              </div>
             </div>
           </div>
 
