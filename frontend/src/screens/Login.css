@@ -27,3 +27,23 @@
 .login > button:active {
   background-color: #93a4e2;
 }
+
+@media (max-width: 560px) {
+  .login > button {
+    width: 190px;
+    background-color: #738adb;
+    color: white;
+    font-weight: 850;
+    padding: 8px;
+    border-radius: 45px;
+  }
+
+  .login > button:hover {
+    width: 190px;
+    background-color: #738adb;
+    color: white;
+    font-weight: 850;
+    padding: 8px;
+    border-radius: 45px;
+  }
+}
