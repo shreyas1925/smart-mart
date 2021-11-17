@@ -43,6 +43,15 @@ const PaymentMethod = ({ history }) => {
               checked
               onChange={(e) => setpaymentMethod(e.target.value)}
             ></Form.Check>
+            <Form.Check
+              type="radio"
+              label="Razorpay or credit card"
+              id="paypal"
+              name="paymentMethod"
+              value="Razorpay"
+              checked
+              onChange={(e) => setpaymentMethod(e.target.value)}
+            ></Form.Check>
           </Col>
         </Form.Group>
         <Button
