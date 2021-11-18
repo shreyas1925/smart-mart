@@ -5,6 +5,7 @@ import Loader from "../Components/Loader";
 import Message from "../Components/Message";
 import { Link } from "react-router-dom";
 import { getOrdeDetails } from "../actions/OrderAction";
+import axios from "axios";
 
 const OrderScreen = ({ match }) => {
   const orderId = match.params.id;
@@ -27,6 +28,11 @@ const OrderScreen = ({ match }) => {
   }
 
   useEffect(() => {
+    const addPayPalScript = async () => {
+      const { data: clientId } = await axios.get("/api/config/paypal");
+      console.log(clientId);
+    };
+    addPayPalScript();
     dispatch(getOrdeDetails(orderId));
     // eslint-disable-next-line
   }, [dispatch, orderId]);
