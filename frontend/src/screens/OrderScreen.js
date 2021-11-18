@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, ListGroup, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Components/Loader";
@@ -8,14 +8,18 @@ import { getOrdeDetails } from "../actions/OrderAction";
 import axios from "axios";
 
 const OrderScreen = ({ match }) => {
+  const [sdkready, setsdkready] = useState(false);
+
   const orderId = match.params.id;
 
   const dispatch = useDispatch();
 
   // this ordercreate is in store which is a reducer
   const orderDetails = useSelector((state) => state.orderCreate);
-
   const { order, loading, error } = orderDetails;
+
+  const orderPay = useSelector((state) => state.orderPay);
+  const { loading: loadingPay, success: successPay } = orderPay;
 
   if (!loading) {
     const addDecimals = (number) => {
@@ -30,12 +34,29 @@ const OrderScreen = ({ match }) => {
   useEffect(() => {
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get("/api/config/paypal");
-      console.log(clientId);
+      // console.log(clientId);
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+      script.async = true;
+      script.onload = () => {
+        setsdkready(true);
+      };
+
+      document.body.appendChild(script);
     };
-    addPayPalScript();
-    dispatch(getOrdeDetails(orderId));
+    // addPayPalScript();
+    if (!order || successPay) { //after paying I wanna see the order details
+      dispatch(getOrdeDetails(orderId));
+    }else if(!order.isPaid){
+      addPayPalScript();
+    }else{
+      setsdkready(true);
+    }                                                                                                                                                                        if (!successPay) { //}
     // eslint-disable-next-line
-  }, [dispatch, orderId]);
+  }, [dispatch, orderId,successPay,order]);
 
   return loading ? (
     <Loader />
