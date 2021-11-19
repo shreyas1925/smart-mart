@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { getuserDetails, updateUserProfile } from "../actions/userAction"; //it is the action
-import {listMyOrders} from "../actions/orderAction"
-import Avatar from "./avatar.png";
+import { listMyOrders } from "../actions/orderAction";
 import "./Login.css";
 
 const ProfileScreen = ({ history }) => {
@@ -28,7 +27,7 @@ const ProfileScreen = ({ history }) => {
   const { success } = userUpdateProfile;
 
   const orderListMy = useSelector((state) => state.orderListMy);
-  const { loading:loadingOrders, error:errorOrders, orders } = orderListMy; //getting from reducers
+  const { loading: loadingOrders, error: errorOrders, orders } = orderListMy; //getting from reducers
 
   useEffect(() => {
     if (!userInfo) {
@@ -36,7 +35,7 @@ const ProfileScreen = ({ history }) => {
     } else {
       if (!user.name) {
         dispatch(getuserDetails("profile"));
-        dispatch(listMyOrders())
+        dispatch(listMyOrders());
       } else {
         // console.log(user.name);
         setName(user.name);
@@ -128,12 +127,37 @@ const ProfileScreen = ({ history }) => {
       </Col>
 
       <Col md={9}>
-      {/* <h2>My Orders</h2> */}
+        {/* <h2>My Orders</h2> */}
 
-      {loadingOrders ? <Loader/> : errorOrders ? <Message variant="danger">{errorOrders}</Message> : (
-        <Table striped bordered hover responsive className="table-sm">
-        </Table>
-      )}
+        {loadingOrders ? (
+          <Loader />
+        ) : errorOrders ? (
+          <Message variant="danger">{errorOrders}</Message>
+        ) : (
+          <Table striped bordered hover responsive className="table-sm">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>DATE</th>
+                <th>TOTAL</th>
+                <th>PAID</th>
+                <th>DELIVERED</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order._id}>
+                  <td>{order._id}</td>
+                  <td>{order.createdAt}</td>
+                  <td>{order.totalPrice}</td>
+                  <td>{order.isPaid}</td>
+                  <td></td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
       </Col>
     </Row>
   );
