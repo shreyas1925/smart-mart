@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { getuserDetails, updateUserProfile } from "../actions/userAction"; //it is the action
-
+import {listMyOrders} from "../actions/orderAction"
 import Avatar from "./avatar.png";
 import "./Login.css";
 
@@ -27,12 +27,16 @@ const ProfileScreen = ({ history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
+  const orderListMy = useSelector((state) => state.orderListMy);
+  const { loading:loadingOrders, error:errorOrders, orders } = orderListMy; //getting from reducers
+
   useEffect(() => {
     if (!userInfo) {
       history.push("/login");
     } else {
       if (!user.name) {
         dispatch(getuserDetails("profile"));
+        dispatch(listMyOrders())
       } else {
         // console.log(user.name);
         setName(user.name);
@@ -123,7 +127,14 @@ const ProfileScreen = ({ history }) => {
         </Form>
       </Col>
 
-      <Col md={9}>{/* <h2>My Orders</h2> */}</Col>
+      <Col md={9}>
+      {/* <h2>My Orders</h2> */}
+
+      {loadingOrders ? <Loader/> : errorOrders ? <Message variant="danger">{errorOrders}</Message> : (
+        <Table striped bordered hover responsive className="table-sm">
+        </Table>
+      )}
+      </Col>
     </Row>
   );
 };
