@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col, Button, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { getuserDetails, updateUserProfile } from "../actions/userAction"; //it is the action
 import { listMyOrders } from "../actions/orderAction";
 import "./Login.css";
+import LinkContainer from "../Components/LinkContainer";
 
 const ProfileScreen = ({ history }) => {
   const [name, setName] = useState("");
@@ -151,8 +151,27 @@ const ProfileScreen = ({ history }) => {
                   <td>{order._id}</td>
                   <td>{order.createdAt}</td>
                   <td>{order.totalPrice}</td>
-                  <td>{order.isPaid}</td>
-                  <td></td>
+                  <td>
+                    {order.isPaid ? (
+                      order.paidAt.substring(0, 10)
+                    ) : (
+                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                    )}
+                  </td>
+                  <td>
+                    {order.isDelivered ? (
+                      order.deliveredAt.substring(0, 10)
+                    ) : (
+                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                    )}
+                  </td>
+                  <td>
+                    <LinkContainer to={`/order/${order._id}`}>
+                      <Button classname="btn-sm" variant="success">
+                        Details
+                      </Button>
+                    </LinkContainer>
+                  </td>
                 </tr>
               ))}
             </tbody>
