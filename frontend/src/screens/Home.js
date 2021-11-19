@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productAction"; //we will be dispatching this
 import Loader from "../Components/Loader";
 import Message from "../Components/Message";
-import tv from "./tv.jpg";
 import "../styles/styles.css";
 
 import home__image from "./home__image.png";
