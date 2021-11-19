@@ -11,9 +11,11 @@ import {
   ORDER_PAY_FAIL,
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_SUCCESS,
-  ORDER_LIST_MY_FAIL
+  ORDER_LIST_MY_FAIL,
 } from "../constants/OrderConstants";
 
+// So i had a bug of showing other peoples data to others so i have done is i have gone to both orders and user reduces and there I have added an extra constant of reset values
+// and here on logout i am calling actions to work on that reducers
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_CREATE_REQUEST });
@@ -103,33 +105,29 @@ export const payOrder =
     }
   };
 
-  export const listMyOrders =
-  () => async (dispatch, getState) => {
-    try {
-      dispatch({ type: ORDER_LIST_MY_REQUEST });
+export const listMyOrders = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: ORDER_LIST_MY_REQUEST });
 
-      const {
-        userLogin: { userInfo },
-      } = getState();
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      };
-      const { data } = await axios.get(
-        `/api/orders/myorders`,
-        config
-      );
-      dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data });
-    } catch (error) {
-      dispatch({
-        type: ORDER_LIST_MY_FAIL,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
-      });
-    }
-  };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/api/orders/myorders`, config);
+    dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ORDER_LIST_MY_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
