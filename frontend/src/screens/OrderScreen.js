@@ -12,26 +12,33 @@ import { ORDER_PAY_RESET } from "../constants/OrderConstants";
 const OrderScreen = ({ match }) => {
   const [sdkready, setsdkready] = useState(false);
 
+  const cart = useSelector((state) => state.cart);
+
   const orderId = match.params.id;
 
   const dispatch = useDispatch();
 
   // this ordercreate is in store which is a reducer
-  const orderDetails = useSelector((state) => state.orderCreate);
+  const orderDetails = useSelector((state) => state.orderDetails);
+
   const { order, loading, error } = orderDetails;
+
+  const addDecimals = (number) => {
+    return (Math.round(number * 100) / 100).toFixed(2);
+  };
+
+  // order.itemsPrice = addDecimals(
+  //   cart.cartItems.reduce((accum, item) => accum + item.price * item.qty, 0)
+  // );
 
   const orderPay = useSelector((state) => state.orderPay);
   const { loading: loadingPay, success: successPay } = orderPay;
 
-  if (!loading) {
-    const addDecimals = (number) => {
-      return (Math.round(number * 100) / 100).toFixed(2);
-    };
+  // if (!loading) {
 
-    order.itemsPrice = addDecimals(
-      order.orderItems.reduce((accum, item) => accum + item.price * item.qty, 0)
-    );
-  }
+  // }
+  const userLogin = useSelector((state) => state.userLogin);
+  // const { userInfo } = userLogin;
 
   useEffect(() => {
     const addPayPalScript = async () => {

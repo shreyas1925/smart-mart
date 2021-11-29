@@ -7,7 +7,6 @@ import Loader from "../Components/Loader";
 import { login } from "../actions/userAction";
 import FormComponent from "../Components/FormComponent";
 // import { Avatar } from "@material-ui/core";
-import Avatar from "./avatar.png";
 import "./Login.css";
 
 const LoginScreen = ({ location, history }) => {

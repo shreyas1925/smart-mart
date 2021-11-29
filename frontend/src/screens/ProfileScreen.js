@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { getuserDetails, updateUserProfile } from "../actions/userAction"; //it is the action
-import { listMyOrders } from "../actions/orderAction";
+import { listMyOrders } from "../actions/OrderAction";
 import "./Login.css";
-import LinkContainer from "../Components/LinkContainer";
+import LinkContainer from "../Components/FormComponent";
 
 const ProfileScreen = ({ history }) => {
   const [name, setName] = useState("");

@@ -51,10 +51,10 @@ const PlaceOrder = ({ history }) => {
     // Now calculating all kind of prices
 
     // After constants,reducers,actions we are here with our orders
+    // all comes from our cart
     dispatch(
       createOrder({
-        // all comes from our cart
-        orderItems: cart.orderItems,
+        orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         shippingPrice: cart.shippingPrice,
         paymentMethod: cart.paymentMethod,
@@ -68,7 +68,7 @@ const PlaceOrder = ({ history }) => {
     <>
       <CheckoutSteps step1 step2 step3 step4 />
       <Row className="">
-        <Col>
+        <Col className="mb-3">
           <ListGroup.Item>
             <h2 className="font-weight-bold">Shipping</h2>
             <p className="text-capitalize">

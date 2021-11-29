@@ -24,14 +24,14 @@ const App = () => {
       <main className="home_div">
         <Container>
           <Route path="/order/:id" component={OrderScreen} />
-          <Route path="/placeorder" component={PlaceOrder} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentMethod} />
-          <Route path="/product/:id" component={ProductScreen} />
-          <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/placeorder" component={PlaceOrder} />
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/profile" component={ProfileScreen} />
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/cart/:id?" component={CartScreen} />
         </Container>
         <Route exact path="/" component={Home} />
       </main>
