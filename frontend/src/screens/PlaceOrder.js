@@ -1,14 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Button, Row, Col, ListGroup, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormComponent from "../Components/FormComponent";
 import CheckoutSteps from "../Components/CheckoutSteps";
@@ -27,7 +18,7 @@ const PlaceOrder = ({ history }) => {
     cart.cartItems.reduce((accum, item) => accum + item.price * item.qty, 0)
   );
 
-  cart.shippingPrice = addDecimals(cart.itemsPrice > 1000 ? 200 : 100);
+  cart.shippingPrice = addDecimals(cart.itemsPrice > 1000 ? 0 : 100);
   cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)));
   cart.totalPrice = (
     Number(cart.itemsPrice) +

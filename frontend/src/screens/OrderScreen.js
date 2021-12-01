@@ -35,8 +35,8 @@ const OrderScreen = ({ match }) => {
   const { loading: loadingPay, success: successPay } = orderPay;
 
   // if (!loading) {
-
   // }
+
   const userLogin = useSelector((state) => state.userLogin);
   // const { userInfo } = userLogin;
 
@@ -44,7 +44,6 @@ const OrderScreen = ({ match }) => {
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get("/api/config/paypal");
       // console.log(clientId);
-
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.async = true;
