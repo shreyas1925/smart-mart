@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { Button, Row, Col, ListGroup, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import FormComponent from "../Components/FormComponent";
+// import FormComponent from "../Components/FormComponent";
 import CheckoutSteps from "../Components/CheckoutSteps";
 import Message from "../Components/Message";
 import { Link } from "react-router-dom";
 import { createOrder } from "../actions/OrderAction";
 
 const PlaceOrder = ({ history }) => {
-  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
   const addDecimals = (number) => {
     return (Math.round(number * 100) / 100).toFixed(2);
   };
