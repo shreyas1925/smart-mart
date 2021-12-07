@@ -16,6 +16,7 @@ import NavBar from "./Components/NavBar";
 import PaymentMethod from "./screens/PaymentMethod";
 import PlaceOrder from "./screens/PlaceOrder";
 import OrderScreen from "./screens/OrderScreen";
+
 const App = () => {
   return (
     <Router>
