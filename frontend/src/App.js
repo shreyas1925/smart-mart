@@ -24,7 +24,7 @@ const App = () => {
       {/* <NavBar /> */}
       <main className="home_div">
         <Container>
-          {/* <Route path="/order/:id" component={OrderScreen} /> */}
+          <Route path="/order/:id" component={OrderScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentMethod} />
           <Route path="/placeorder" component={PlaceOrder} />
