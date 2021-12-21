@@ -220,4 +220,9 @@ li a:hover {
   .main {
     grid-template-columns: 1fr;
   }
+
+  /* Order screen dhu */
+  .order_summary {
+    margin-bottom: 25px;
+  }
 }
