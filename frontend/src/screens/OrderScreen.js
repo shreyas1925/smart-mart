@@ -12,6 +12,7 @@ const OrderScreen = ({ match }) => {
   const dispatch = useDispatch();
 
   const orderDetails = useSelector((state) => state.orderDetails);
+
   const { order, loading, error } = orderDetails;
 
   if (!loading) {
