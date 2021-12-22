@@ -80,7 +80,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc get logged user orders
+// @desc get logged in user's orders
 // @route GET /api/orders/myorders
 // @access Private
 
