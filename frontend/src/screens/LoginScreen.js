@@ -40,7 +40,7 @@ const LoginScreen = ({ location, history }) => {
       {/* <img src={Avatar} className="image" /> */}
       {/* <Avatar /> */}
       {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader></Loader>}
+      {/* {loading && <Loader></Loader>} */}
       <Form onSubmit={submitHandler} className="mt-5">
         <Form.Group controlId="email">
           <Form.Label>Email Address</Form.Label>

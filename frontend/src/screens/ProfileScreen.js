@@ -6,6 +6,7 @@ import Loader from "../Components/Loader";
 import { getuserDetails, updateUserProfile } from "../actions/userAction"; //it is the action
 import { listMyOrders } from "../actions/OrderAction";
 import "./Login.css";
+import "../styles/tables.css";
 import LinkContainer from "../Components/FormComponent";
 
 const ProfileScreen = ({ history }) => {
@@ -166,10 +167,10 @@ const ProfileScreen = ({ history }) => {
                     )}
                   </td>
                   <td>
-                    <LinkContainer to={`/order/${order._id}`}>
-                      <Button classname="btn-sm" variant="success">
-                        Details
-                      </Button>
+                    <LinkContainer className="" to={`/order/${order._id}`}>
+                      {/* <Button classname="btn-sm mr-3" variant="success"> */}
+                      {/* Details */}
+                      {/* </Button> */}
                     </LinkContainer>
                   </td>
                 </tr>
