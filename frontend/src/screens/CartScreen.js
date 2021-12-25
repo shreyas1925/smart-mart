@@ -84,7 +84,7 @@ const CartScreen = ({ match, location, history }) => {
           <h1>Shopping Cart</h1>
 
           {cartItems.length === 0 ? (
-            <Message>
+            <Message variant="danger">
               No items added your cart is Empty <Link to="/">Go Back</Link>
             </Message>
           ) : (

@@ -214,6 +214,14 @@ li a:hover {
     grid-template-rows: 100px 100px 200px;
     grid-gap: 12px;
   }
+
+  .logo img {
+    width: 80px;
+    height: 50px;
+  }
+  .tags {
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 768px) {
