@@ -7,14 +7,22 @@ import Loader from "../Components/Loader";
 import { listUsers } from "../actions/userAction"; //it is the action
 import "./Login.css";
 import FormComponent from "../Components/FormComponent";
-const RegisterScreen = () => {
+const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch();
+
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList; //getting from reducers
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin; //getting from reducers
+
   useEffect(() => {
-    dispatch(listUsers());
-  }, [dispatch]);
+    if (userInfo && userInfo.isAdmin) {
+      dispatch(listUsers());
+    } else {
+      history.push("/login");
+    }
+  }, [dispatch, history]);
 
   const deleteHandler = (id) => {};
   return (

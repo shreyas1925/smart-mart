@@ -16,7 +16,7 @@ import NavBar from "./Components/NavBar";
 import PaymentMethod from "./screens/PaymentMethod";
 import PlaceOrder from "./screens/PlaceOrder";
 import OrderScreen from "./screens/OrderScreen";
-
+import UserListScreen from "./screens/UserListScreen";
 const App = () => {
   return (
     <Router>
@@ -33,6 +33,7 @@ const App = () => {
           <Route path="/profile" component={ProfileScreen} />
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/admin/userList" component={UserListScreen} />
         </Container>
         <Route exact path="/" component={Home} />
       </main>
