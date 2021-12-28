@@ -16,6 +16,7 @@ const RegisterScreen = () => {
     dispatch(listUsers());
   }, [dispatch]);
 
+  const deleteHandler = (id) => {};
   return (
     <>
       <h1>Users</h1>
@@ -58,7 +59,7 @@ const RegisterScreen = () => {
                   <Button
                     variant="danger"
                     className="btn-sm"
-                    // onClick={() => deleteHandler(user._id)}
+                    onClick={() => deleteHandler(user._id)}
                   >
                     <i className="fas fa-trash"></i>
                   </Button>
