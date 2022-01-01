@@ -6,6 +6,7 @@ import {
   registerUser,
   updateProfile,
   getUsers,
+  deleteUser,
 } from "../controllers/userController.js";
 import { protectedroute, Admin } from "../middleware/authMiddleware.js";
 
@@ -17,4 +18,5 @@ router
   .get(protectedroute, getUserProfile)
   .put(protectedroute, updateProfile); //adding .route here because we will be dealing with both get an put requests with the user
 
+router.route("/:id").delete(protectedroute, Admin, deleteUser);
 export default router;
