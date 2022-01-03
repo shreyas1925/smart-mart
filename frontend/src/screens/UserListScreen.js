@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
-import { listUsers } from "../actions/userAction"; //it is the action
+import { deleteUser, listUsers } from "../actions/userAction"; //it is the action
 import "./Login.css";
 import FormComponent from "../Components/FormComponent";
 const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch();
-
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList; //getting from reducers
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin; //getting from reducers
+
+  const userDelete = useSelector((state) => state.userDelete);
+  const { success: successdelete } = userDelete; //getting from reducers
 
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
@@ -22,9 +23,11 @@ const RegisterScreen = ({ history }) => {
     } else {
       history.push("/login");
     }
-  }, [dispatch, history]);
+  }, [dispatch, history, successdelete]);
 
-  const deleteHandler = (id) => {};
+  const deleteHandler = (id) => {
+    dispatch(deleteUser(id));
+  };
   return (
     <>
       <h1>Users</h1>
