@@ -7,6 +7,7 @@ import { listProducts } from "../actions/productAction"; //we will be dispatchin
 import Loader from "../Components/Loader";
 import Message from "../Components/Message";
 import "../styles/styles.css";
+import Header from "../Components/Header";
 
 import home__image from "./home__image.png";
 import NavBar from "../Components/NavBar";
@@ -32,8 +33,8 @@ const Home = () => {
           {/* Main intro banner comes here */}
 
           <div className="home__intro">
-            <NavBar />
-
+            {/* <NavBar /> */}
+            <Header />
             <div className="home__image">
               {/* <img src={home__image} alt="home" /> */}
             </div>

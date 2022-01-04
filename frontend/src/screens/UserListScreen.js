@@ -26,7 +26,9 @@ const RegisterScreen = ({ history }) => {
   }, [dispatch, history, successdelete]);
 
   const deleteHandler = (id) => {
-    dispatch(deleteUser(id));
+    if (window.confirm("Are you sure want to delete")) {
+      dispatch(deleteUser(id));
+    }
   };
   return (
     <>
@@ -62,18 +64,26 @@ const RegisterScreen = ({ history }) => {
                   )}
                 </td>
                 <td>
-                  <FormComponent to={`/admin/user/${user._id}/edit`}>
-                    <Button variant="light" className="btn-sm">
-                      <i className="fas fa-edit"></i>
-                    </Button>
-                  </FormComponent>
-                  <Button
-                    variant="danger"
-                    className="btn-sm"
-                    onClick={() => deleteHandler(user._id)}
-                  >
-                    <i className="fas fa-trash"></i>
-                  </Button>
+                  <div className="d-flex flex-row mr-2">
+                    <div>
+                      <Button
+                        variant="light"
+                        className="btn-sm mr-2"
+                        to={`/admin/user/${user._id}/edit`}
+                      >
+                        <i className="fas fa-edit"></i>
+                      </Button>
+                    </div>
+                    <div>
+                      <Button
+                        variant="danger"
+                        className="btn-sm"
+                        onClick={() => deleteHandler(user._id)}
+                      >
+                        <i className="fas fa-trash"></i>
+                      </Button>
+                    </div>
+                  </div>
                 </td>
               </tr>
             ))}
