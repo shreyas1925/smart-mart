@@ -132,6 +132,48 @@ const deleteUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc get user by id
+// @route GET /api/users/:id
+// @access private/Admin
+
+const getUserById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id).select("-password"); // i wanna send a user back
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+// @desc get user
+// @route PUT /api/users/:id
+// @access private/Admin
+
+const updateUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.isAdmin = req.body.isAdmin;
+
+    const updateduser = await user.save();
+    res.json({
+      _id: updateduser._id,
+      name: updateduser.name,
+      email: updateduser.email,
+      isAdmin: updateduser.isAdmin,
+      //not creating just updating the one
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
+  res.send("success");
+});
+
 export {
   authUser,
   getUserProfile,
@@ -139,4 +181,6 @@ export {
   updateProfile,
   getUsers,
   deleteUser,
+  getUserById,
+  updateUser,
 };
