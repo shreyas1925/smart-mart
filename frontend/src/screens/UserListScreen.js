@@ -5,8 +5,8 @@ import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { deleteUser, listUsers } from "../actions/userAction"; //it is the action
 import "./Login.css";
-import FormComponent from "../Components/FormComponent";
-const RegisterScreen = ({ history }) => {
+import { Link } from "react-router-dom";
+const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList; //getting from reducers
@@ -66,13 +66,11 @@ const RegisterScreen = ({ history }) => {
                 <td>
                   <div className="d-flex flex-row mr-2">
                     <div>
-                      <Button
-                        variant="light"
-                        className="btn-sm mr-2"
-                        to={`/admin/user/${user._id}/edit`}
-                      >
-                        <i className="fas fa-edit"></i>
-                      </Button>
+                      <Link to={`/admin/user/${user._id}/edit`}>
+                        <Button variant="light" className="btn-sm mr-2">
+                          <i className="fas fa-edit"></i>
+                        </Button>
+                      </Link>
                     </div>
                     <div>
                       <Button
@@ -94,4 +92,4 @@ const RegisterScreen = ({ history }) => {
   );
 };
 
-export default RegisterScreen;
+export default UserListScreen;
