@@ -17,12 +17,12 @@ const UserEditScreen = ({ match, history }) => {
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails; //getting from reducers
-  const updateUser = useSelector((state) => state.updateUser);
+  const userUpdate = useSelector((state) => state.userUpdate);
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
-  } = updateUser; //getting from reducers
+  } = userUpdate; //getting from reducers
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: USER_UPDATE_RESET });
@@ -51,7 +51,7 @@ const UserEditScreen = ({ match, history }) => {
 
       <FormComponent>
         <h1>Edit User {userID}</h1>
-        {loadingUpdate && <Loader />}
+        {/* {loadingUpdate && <Loader />} */}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
           <Loader />
@@ -82,7 +82,7 @@ const UserEditScreen = ({ match, history }) => {
                 type="checkbox"
                 label="Is Admin"
                 checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.value)}
+                onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
 
