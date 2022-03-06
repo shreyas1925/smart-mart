@@ -33,11 +33,11 @@ const Home = () => {
           {/* Main intro banner comes here */}
 
           <div className="home__intro">
-            {/* <NavBar /> */}
-            <Header />
-            <div className="home__image">
-              {/* <img src={home__image} alt="home" /> */}
-            </div>
+            <NavBar />
+            {/* <Header /> */}
+            {/* <div className="home__image"> */}
+            {/* <img src={home__image} alt="home" /> */}
+            {/* </div> */}
 
             <div className="home__info font-weight-bolder">
               <h1 className="text-white">Smart Mart 🚀 People's choice</h1>

@@ -39,9 +39,30 @@ const NavBar = () => {
               <Link to="/login">Login</Link>
             </li>
           )}
+          {userInfo && userInfo.isAdmin && (
+            // <NavDropdown title="Admin" id="adminmenu" className="mt-1">
+            <>
+              <li className="mr-5">
+                <Link to="/admin/userlist">
+                  Users
+                </Link>
+              </li>
+              <li className="mr-5">
+                <Link to="/admin/productlist">
+                  Products
+                </Link>
+              </li>
+              <li className="mr-5">
+                <Link to="/admin/orderlist">
+                  Orders
+                </Link>
+              </li>
+              {/* </NavDropdown> */}
+            </>
+          )}
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 
