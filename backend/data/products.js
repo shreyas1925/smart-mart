@@ -36,32 +36,33 @@ const products = [
     rating: 3.5,
     numReviews: 3,
   },
-  {
-    name: "Water resistance Chairs",
-    image: "/images/imgch.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis vero eum quibusdam magni facilis nam explicabo incidunt est modi hic?",
-    // "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
-    brand: "XYZ",
-    category: "Furnitures",
-    price: 80,
-    countInStock: 0,
-    rating: 4,
-    numReviews: 7,
-  },
+  // {
+  //   name: "Water resistance Chairs",
+  //   image: "/images/imgch.jpg",
+  //   description:
+  //     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis vero eum quibusdam magni facilis nam explicabo incidunt est modi hic?",
+  //   // "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
+  //   brand: "XYZ",
+  //   category: "Furnitures",
+  //   price: 80,
+  //   countInStock: 0,
+  //   rating: 4,
+  //   numReviews: 7,
+  // },
 
-  {
-    name: "Household Tables",
-    image: "/images/imgf.jpg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat exercitationem magnam saepe consequatur aperiam quidem ea dolorem iusto suscipit nam.",
-    brand: "ZZZ",
-    category: "Furnitures",
-    price: 399.99,
-    countInStock: 11,
-    rating: 5,
-    numReviews: 8,
-  },
+  // {
+  //   name: "Household Tables",
+  //   image: "/images/imgf.jpg",
+  //   description:
+  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat exercitationem magnam saepe consequatur aperiam quidem ea dolorem iusto suscipit nam.",
+  //   brand: "ZZZ",
+  //   category: "Furnitures",
+  //   price: 399.99,
+  //   countInStock: 11,
+  //   rating: 5,
+  //   numReviews: 8,
+  // },
+
 ];
 
 export default products;
